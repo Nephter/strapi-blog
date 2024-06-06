@@ -9,11 +9,11 @@ import CategoryLabel from "@/components/blog/category";
 export default function PostList({
   post,
   aspect,
-  minimal,
-  pathPrefix,
+  minimal = false,
+  pathPrefix = "",
   preloadImage,
-  fontSize,
-  fontWeight
+  fontSize = "normal",
+  fontWeight = "normal"
 }) {
   const imageProps = post?.mainImage
     ? urlForImage(post.mainImage)
@@ -38,12 +38,13 @@ export default function PostList({
               aspect === "landscape"
                 ? "aspect-video"
                 : aspect === "custom"
-                ? "aspect-[5/4]"
-                : "aspect-square"
+                  ? "aspect-[5/4]"
+                  : "aspect-square"
             )}
-            href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-              post.slug.current
-            }`}>
+            // href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug.current
+            //   }`}
+            href={'/'}
+          >
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -69,24 +70,25 @@ export default function PostList({
           <div>
             <CategoryLabel
               categories={post.categories}
-              nomargin={minimal}
+            // nomargin={minimal}
             />
             <h2
               className={cx(
                 fontSize === "large"
                   ? "text-2xl"
                   : minimal
-                  ? "text-3xl"
-                  : "text-lg",
+                    ? "text-3xl"
+                    : "text-lg",
                 fontWeight === "normal"
                   ? "line-clamp-2 font-medium  tracking-normal text-black"
                   : "font-semibold leading-snug tracking-tight",
                 "mt-2    dark:text-white"
               )}>
               <Link
-                href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-                  post.slug.current
-                }`}>
+                // href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug.current
+                //   }`}
+                href={'/'}
+              >
                 <span
                   className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
       bg-no-repeat
@@ -104,9 +106,8 @@ export default function PostList({
               {post.excerpt && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
                   <Link
-                    href={`/post/${
-                      pathPrefix ? `${pathPrefix}/` : ""
-                    }${post.slug.current}`}>
+                    href={`/post/${pathPrefix ? `${pathPrefix}/` : ""
+                      }${post.slug.current}`}>
                     {post.excerpt}
                   </Link>
                 </p>
@@ -138,10 +139,10 @@ export default function PostList({
               <time
                 className="truncate text-sm"
                 dateTime={post?.publishedAt || post._createdAt}>
-                {format(
+                {/* {format(
                   parseISO(post?.publishedAt || post._createdAt),
                   "MMMM dd, yyyy"
-                )}
+                )} */}
               </time>
             </div>
           </div>

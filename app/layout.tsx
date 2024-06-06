@@ -1,7 +1,7 @@
-import "@/styles/tailwind.css";
+import "styles/tailwind.css";
 import { Providers } from "./providers";
 import { cx } from "@/utils/all";
-import { Inter, Lora } from "next/font/google";
+import { Inter, Lora, AR_One_Sans, Merriweather, EB_Garamond } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,6 +13,16 @@ const lora = Lora({
   variable: "--font-lora"
 });
 
+const arOneSans = AR_One_Sans({
+  subsets: ["latin"],
+  variable: "--font-ar-one-sans"
+});
+
+const ebGaramond = EB_Garamond({
+  subsets: ["latin"],
+  variable: "--font-eb-garamond"
+});
+
 export default function RootLayout({
   children
 }: {
@@ -22,7 +32,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cx(inter.variable, lora.variable)}>
+      className={cx(arOneSans.className)}>
       <body className="antialiased text-gray-800 dark:bg-black dark:text-gray-400">
         <Providers>{children}</Providers>
       </body>

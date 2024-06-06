@@ -1,0 +1,140 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+}
+
+.markdown h1 {
+  @apply mb-4 mt-12 text-6xl leading-snug;
+}
+
+.markdown h2 {
+  @apply mb-4 mt-12 text-3xl leading-snug;
+}
+
+.markdown h3 {
+  @apply mb-4 mt-8 text-2xl leading-snug;
+}
+
+.markdown pre {
+  @apply my-6 overflow-x-auto rounded-lg bg-gray-900 p-4 text-white;
+  border-left-width: 4px;
+  border-left-color: #4299e1; /* Tailwind's blue-500 */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5;
+}
+
+.markdown code {
+  @apply rounded bg-gray-200 px-1 py-0.5 text-red-500;
+}
+
+/* Code block specific styles */
+.markdown pre code {
+  @apply bg-transparent text-white;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 1rem; /* text-base */
+}
+
+/* Syntax highlighting */
+.markdown code[class*="language-"],
+.markdown pre[class*="language-"] {
+  @apply text-left;
+}
+
+.markdown .token.comment,
+.markdown .token.prolog,
+.markdown .token.doctype,
+.markdown .token.cdata {
+  @apply text-gray-400;
+  font-style: italic;
+}
+
+.markdown .token.punctuation {
+  @apply text-gray-300;
+}
+
+.markdown .token.property,
+.markdown .token.tag,
+.markdown .token.boolean,
+.markdown .token.number,
+.markdown .token.constant,
+.markdown .token.symbol,
+.markdown .token.deleted {
+  @apply text-red-400;
+}
+
+.markdown .token.selector,
+.markdown .token.attr-name,
+.markdown .token.string,
+.markdown .token.char,
+.markdown .token.builtin,
+.markdown .token.inserted {
+  @apply text-green-400;
+}
+
+.markdown .token.operator,
+.markdown .token.entity,
+.markdown .token.url,
+.markdown .language-css .token.string,
+.markdown .style .token.string,
+.markdown .token.variable {
+  @apply text-yellow-400;
+}
+
+.markdown .token.atrule,
+.markdown .token.attr-value,
+.markdown .token.function,
+.markdown .token.class-name {
+  @apply text-blue-400;
+}
+
+.markdown .token.keyword {
+  @apply text-purple-400;
+}
+
+.markdown .token.regex,
+.markdown .token.important {
+  @apply text-orange-400;
+}
+
+.markdown .token.important,
+.markdown .token.bold {
+  font-weight: bold;
+}
+
+.markdown .token.italic {
+  font-style: italic;
+}
+
+.markdown .token.entity {
+  cursor: help;
+}
+
+/* Line numbers */
+.markdown pre::before {
+  content: attr(data-line);
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 4px;
+  background: #2d3748; /* Tailwind's gray-800 */
+  color: #a0aec0; /* Tailwind's gray-400 */
+  text-align: right;
+  border-radius: 0.25rem 0 0 0.25rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.markdown pre:hover::before {
+  background: #4299e1; /* Tailwind's blue-500 */
+  color: #ffffff;
+}

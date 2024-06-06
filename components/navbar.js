@@ -12,10 +12,7 @@ import { myLoader } from "@/utils/all";
 
 export default function Navbar(props) {
   const leftmenu = [
-    {
-      label: "Home",
-      href: "/"
-    },
+
     {
       label: "About",
       href: "/about"
@@ -35,20 +32,15 @@ export default function Navbar(props) {
       label: "Pro Version",
       href: "https://stablo-pro.web3templates.com/",
       external: true,
-      badge: "new"
+      // badge: "new"
     },
-    {
-      label: "Download",
-      href: "https://web3templates.com/templates/stablo-minimal-blog-website-template",
-      external: true
-    }
   ];
 
   const mobilemenu = [...leftmenu, ...rightmenu];
 
   return (
-    <Container>
-      <nav>
+    <Container  >
+      <nav className="mt-5 bg-white opacity-40 rounded-full w-[50%] mx-auto">
         <Disclosure>
           {({ open }) => (
             <>
@@ -86,21 +78,7 @@ export default function Navbar(props) {
                       />
                     ) : (
                       <span className="block text-center">
-                        Stablo
-                      </span>
-                    )}
-                  </Link>
-                  <Link href="/" className="hidden w-28 dark:block">
-                    {props.logoalt ? (
-                      <Image
-                        {...urlForImage(props.logoalt)}
-                        alt="Logo"
-                        priority={true}
-                        sizes="(max-width: 640px) 100vw, 200px"
-                      />
-                    ) : (
-                      <span className="block text-center">
-                        Stablo
+                        Never Lost
                       </span>
                     )}
                   </Link>
